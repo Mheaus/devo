@@ -1,75 +1,48 @@
-const DEFAULT_NIGHTMODE_BACKGROUND = '31363e';
+import { faGithub, faHackerNewsSquare, faProductHunt } from '@fortawesome/free-brands-svg-icons';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
+
+import DesignerNewsItem from './components/DesignerNewsItem';
+import GithubTrend from './components/GithubTrend';
+import HackerNewsItem from './components/HackerNewsItem';
+import ProductHuntItem from './components/ProductHuntItem';
 
 export default {
   platforms: {
+    designernews: {
+      dataUrl: 'https://www.designernews.co/api/v2/stories',
+      name: 'designernews',
+      title: 'Designer News',
+      icon: faNewspaper,
+      component: DesignerNewsItem,
+      responseDataKey: 'stories',
+      externalLink: 'https://www.designernews.co',
+    },
     github: {
       dataUrl: 'https://devo.burakkarakan.com/api/github',
+      name: 'github',
       title: 'GitHub Trending',
-      icon: ['fab', 'github'],
-
-      titleFontColor: 'ffffff',
-      titleBackgroundColor: '25292f',
-      loadingColor: '25292f',
+      icon: faGithub,
+      component: GithubTrend,
 
       externalLink: 'https://github.com/trending',
-      bodyComponentName: 'GitHubBody',
-
-      nightMode: {
-        titleBackgroundColor: DEFAULT_NIGHTMODE_BACKGROUND,
-        titleFontColor: 'ffffff',
-        loadingColor: 'ffffff',
-      },
     },
     hackernews: {
       dataUrl: 'https://devo.burakkarakan.com/api/hackernews',
+      name: 'hackernews',
       title: 'Hacker News',
-      icon: ['fab', 'hacker-news-square'],
-      titleFontColor: 'ffffff',
-      titleBackgroundColor: 'fe6501',
-      loadingColor: 'fe6501',
+      icon: faHackerNewsSquare,
+      component: HackerNewsItem,
 
       externalLink: 'https://news.ycombinator.com',
-      bodyComponentName: 'HackerNewsBody',
-
-      nightMode: {
-        titleBackgroundColor: DEFAULT_NIGHTMODE_BACKGROUND,
-        titleFontColor: 'fe6501',
-        loadingColor: 'fe6501',
-      },
     },
     producthunt: {
       dataUrl: 'https://devo.burakkarakan.com/api/producthunt',
+      name: 'producthunt',
       title: 'Product Hunt',
-      icon: ['fab', 'product-hunt'],
-      titleFontColor: 'ffffff',
-      titleBackgroundColor: 'da5430',
-      loadingColor: 'da5430',
+      icon: faProductHunt,
+      component: ProductHuntItem,
 
       externalLink: 'https://www.producthunt.com',
-      bodyComponentName: 'ProductHuntBody',
-
-      nightMode: {
-        titleBackgroundColor: DEFAULT_NIGHTMODE_BACKGROUND,
-        titleFontColor: 'da5430',
-        loadingColor: 'da5430',
-      },
-    },
-    designernews: {
-      dataUrl: 'https://www.designernews.co/api/v2/stories',
-      title: 'Designer News',
-      icon: ['fas', 'newspaper'],
-      titleFontColor: 'ffffff',
-      titleBackgroundColor: '2d72d9',
-      loadingColor: '2d72d9',
-
-      externalLink: 'https://www.designernews.co',
-      bodyComponentName: 'DesignerNewsBody',
-
-      nightMode: {
-        titleBackgroundColor: DEFAULT_NIGHTMODE_BACKGROUND,
-        titleFontColor: '85c7fb',
-        loadingColor: '85c7fb',
-      },
     },
   },
 };
